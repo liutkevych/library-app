@@ -49,6 +49,12 @@ module.exports = function(environment) {
      ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+  if (environment === 'production') {
+    ENV['ember-faker'] = {
+      enabled: true
+    };
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
@@ -60,9 +66,6 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
-
-  }
 
   return ENV;
 };
